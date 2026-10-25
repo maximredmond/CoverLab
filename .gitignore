@@ -1,0 +1,4 @@
+/dist/
+/docs/
+__pycache__/
+*.luac

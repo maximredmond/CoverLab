@@ -2,7 +2,12 @@
 
 A KOReader plugin to discover, compare, import and restore EPUB covers. Books remain unchanged; covers use KOReader's existing custom-cover sidecars.
 
-**Development version 0.1.0.** Tested with the official KOReader v2026.07.1 Linux desktop distribution. Physical Kindle acceptance testing is still required.
+## Description
+Have you ever downloaded an EPUB and you realise the cover is low quality, or that there are other versions of the book's cover you would rather use? How are you ever going to impress anyone when your e-reader is showing a blurry or boring cover? I was facing this issue. 
+
+I searched for existing plugins but there was nothing lightweight that could easily and quickly change the covers on the device, so I decided to slopcode my own plugin. CoverLab scrapes Amazon (and Open Library as a backup) by trying to match ISBN/ASIN or the book title and author returning high quality versions of the book's cover. 
+
+Feel free to contribute if you have any ideas! I'll let ChatGPT explain the rest.
 
 ## Install
 
@@ -21,8 +26,6 @@ python3 tools/build.py
 **Open Library is the secondary source.** It is enabled by default as a fallback when Amazon returns no candidates or is unavailable. You can also select **Search Open Library** from Amazon's results. Turn it off in **CoverLab → Settings → Open Library fallback: Off**. Disabled means CoverLab does not invoke the Open Library provider, including its cached search path or thumbnails.
 
 Amazon search results are title/author matches, not verified ISBN editions. Only a matching Kindle ASIN is labelled exact. Open Library exact matches use edition-level ISBN data. Edition confidence ranks ahead of image quality.
-
-Amazon pages can change or return access blocks. CoverLab stops on CAPTCHA, blocking, or unsupported markup; it does not log in or attempt to bypass access controls. Local JPEG/PNG selection and direct HTTPS image URLs remain available. No API key, account or companion server is required.
 
 ## Changing and restoring covers
 
